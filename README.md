@@ -32,18 +32,15 @@ SDK를 사용하면 편리하고 안전하게 API 연결을 할수있다.
 **Class**에서 아래와 같이 **Method**를 포함하여 호출해서 사용할수 있다.
 
 * `getToken ()` -> Token 신청. ( `setting.php` 설정필요 ) 
+* `storageList ( $token= '' )` -> 스토리지 목록 검색.
+* `storageDetail ( $storageKey = '' , $token = '' )` -> 스토리지 상세 검색.
 * `storageTotal ( $token = '' , $storageKey = '' )` -> 스토리지 총용량 검색.
 * `storageRest ( $token = '' , $storageKey = '' )` -> 스토리지 남은용량 검색.
 * `storageUsed ( $token = '' , $storageKey = '' )` -> 스토리지 사용용량 검색.
-* `storagesSelect ( $token = '' , $storageKey = '' )` -> 스토리지 검색 (상세&리스트).
-* `contentsListSelect ( $token = '' , $folderKey = '' )` -> 컨텐츠 리스트 검색.
-* `contentsSelect ( $token = '' , $contentsKey )` -> 컨텐츠 상세 검색.
-* `folderCreate ( $token = '' , $folderKey = '' , $folderName )` -> 목록생성.
-* `foldersSelect ( $token = '' , $action = '' , $folderKey = '' )` -> 목록 조회.
-* `contentsDelete ( $token = '' , $contentsKeys )` -> 컨텐츠 삭제 ( 멀티 ).
-* `contentsNameUpdate ( $token = '' , $contentsKey , $contentsName )` -> 컨텐츠명 수정.
-* `tagUpdate ( $token = '' , $contentsKey , $tag = '' )` -> 태그 수정.
-* `downloadLink ( $token = '' , $contentsKey )` -> 다운로드 주소 요청.
+* `videoList ( $catagoryIdx = '' , $token = '' )` -> 동영상 리스트 검색.
+* `videoDetail ( $videoKey , $token = '' )` -> 동영상 상세 검색.
+* `videoDelete ( $videoKey = '' , $token = '' )` -> 동영상 삭제 .
+* `videoUpdate ( $memo , $mobile='' , $pc='' , $title , $videoKey = '' , $token = '' )` -> 동영상 정보 수정.
 
 **Token** 는 `getToken ()` 로 생성하며 같은 **Object**에서 저장하고있어서  
 아래와같이 `$storages1`;`$storages2`;`$storages3` 내용이 같다.
