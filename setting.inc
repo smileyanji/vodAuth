@@ -1,4 +1,16 @@
 <?php
+/*
+ * ===========================================================================
+ * API 기준 정보 설정
+ * ===========================================================================
+ *
+ * API서버로 접근 내용을 메소드로 구성해서 include해서 사용하면 됩니다.
+ *
+ * ---------------------------------------------------------------------------
+ * 작성자: 리성림 <chenglin@smileserv.com>
+ * 작성일: 2019년 11월 13일
+ * ===========================================================================
+ */
 $_API = array
 	(
 	/**
@@ -6,31 +18,29 @@ $_API = array
 	 * API서버 도메인
 	 * 'http://' or 'https://' 부터 시작합니다.
 	 */
-	'apiDomain' => 'http://api.smileyanji.com/' ,
+	'apiDomain' => 'Input your api domain here!' ,
 	/**
 	 * accesskeyId
 	 * accesskey ID
 	 */
-	'accesskeyId' => '1576xGoDjgQs0ff8N0s025K37L979QK9' ,
+	'accesskeyId' => 'Input your api accesskey ID here!' ,
 	/**
 	 * accesskeySecret
 	 * accesskey 비번
-	 */	
-	'accesskeySecret' => '$2y$10$YcbcyRwXxuUloK9I/TtSrOwJLm0/UH4X1T796RrV9X5g4AUrAUBr6' ,
+	 */
+	'accesskeySecret' => 'Input your api accesskey secret here!' ,
 	/**
 	 * storageKey
 	 * 스토리지키
 	 */
 	'storageKey' => array(
-                        'storage'=>'jb1wS5Aw5f66cnnUA852ob9ky341W601',
-                        'storage2'=>'151365Roqy9s3uc2Bp16Cg57eVU0O9l1',
-                        'storage1'=>'zNjpF1kpwP2v5nY71IT8x9M3mA62H490',
-                        ),
-    /**
-    *
-    *
-    */
-    'version'=>'v1',
-    )
-
-?>
+                    'Input your api storag name here!'=>'Input your api storag key here!',
+                    'Input your api storag name here!'=>'Input your api storag key here!',
+                    'Input your api storag name here!'=>'Input your api storag key here!',
+                    ),
+	/**
+	 * version
+	 * api 버전
+	 */
+	'version'=>'Input your api version here!',
+	) ;
