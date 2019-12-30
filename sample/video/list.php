@@ -25,8 +25,8 @@ $data = $AUTH -> catagorySelect () ;
 							$i ++ ;
 					?>
 					<a href="./play.php?video_key=<?= $v -> video_key ?>">
-						<li class="">
-							<img src="<? echo empty ( $v -> thumbnail_small ) ? '../../img/img1.jpg' : $v -> thumbnail_small ?>">
+						<li>
+							<img src="<?= $v -> thumbnail_small ?>" onerror="this.src='../../img/img.png'">
 							<div class="menu_title">
 								<h3><?= $v -> title ?></h3>
 							</div>
@@ -58,7 +58,7 @@ $data = $AUTH -> catagorySelect () ;
 				?>
 				<a href="./play.php?video_key=<?= $v -> video_key ?>">
 					<li class="">
-						<img src="<? echo empty ( $v -> thumbnail_small ) ? '../../img/img1.jpg' : $v -> thumbnail_small ?>">
+						<img src="<?= $v -> thumbnail_small ?>" onerror="this.src='../../img/img.png'">
 						<div class="menu_title">
 							<h3><?= $v -> title ?></h3>
 						</div>
