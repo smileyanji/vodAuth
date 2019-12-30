@@ -3,11 +3,11 @@
  * 스토리지 검색
  * @package storage
  */
-include_once '../inc/config.inc';
-$title = 'Storage - Detail';
+include_once '../inc/config.inc' ;
+$title = 'Storage - Detail' ;
 ?>
 
-<?php include_once INC . DIRECTORY_SEPARATOR . 'header.inc'; ?>
+<?php include_once INC . DIRECTORY_SEPARATOR . 'header.inc' ; ?>
 <div class="div_main">
     <div class="item">
         <h2>소트리지 목록 리스트 : </h2>
@@ -16,11 +16,12 @@ $title = 'Storage - Detail';
                 Storages:
                 <select name ="storage">
                     <option value='' selected="selected">select</option>
-                    <?php
-                    foreach ($_API['storageKey'] as $k => $v) {
-                        echo "<option value ='$v'>$k</option>";
-                    }
-                    ?>
+					<?php
+					foreach ( $_API['storageKey'] as $k => $v )
+					{
+						echo "<option value ='$v'>$k</option>" ;
+					}
+					?>
                 </select>
             </div>
             <table name="storagesTable" >
@@ -38,8 +39,8 @@ $title = 'Storage - Detail';
                     </tr>
                 </thead>
                 <tbody>
-                     <tr class="">
-                         <td colspan="9">please select</td>
+					<tr class="">
+						<td colspan="9">please select</td>
                     </tr>
                     <tr class="storage">
                         <td></td>

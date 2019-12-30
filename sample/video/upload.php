@@ -94,144 +94,137 @@ $AUTH -> getToken () ;
 <script src="../jquery.min.js" type="text/javascript"></script>
 
 <script>
-	$ ( document ).ready ( function () {
-		$ ( 'button[name="btnUpload"]' ).click ( function () {
-			var fileInput = $ ( '#video' ).get ( 0 ).files[0] ;
-			if ( ! fileInput )
-			{
-				alert ( "업로드할 파일을 선택해주세요." ) ;
-				return ;
-			}
-			var token = $ ( '#token' ).val () ,
-					form = new FormData ( document.getElementsByName ( "formUpload" )[0] ) ,
-					encoding = form.get ( 'encodings' ) ;
-			if ( form.get ( "title" ) == null )
-			{
-				alert ( 'no title' ) ;
-				return ;
-			}
-			if ( form.get ( "encodings" ) == null )
-			{
-				alert ( 'no encoding' ) ;
-				return ;
-			}
-			if ( form.get ( "pcQuality" ) == null )
-			{
-				alert ( 'no pcQuality' ) ;
-				return ;
-			}
-			if ( form.get ( "mobileQuality" ) == null )
-			{
-				alert ( 'no mobileQuality' ) ;
-				return ;
-			}
-			if ( ! encoding.includes ( ',' ) )
-				encoding = encoding + ',' ;
-			var encoding_arr = encoding.split ( "," ) ,
-					encoding_arr = encoding_arr.filter ( function ( s )
-					{
-						return s && s.trim () ;
-					} ) ;
-			form.delete ( "encodings" ) ;
-			for ( var i = 0 ; i < encoding_arr.length ; i ++ )
-			{
-				form.append ( 'encoding[' + i + ']' , encoding_arr[i] ) ;
-			}
-
-			$.ajax ( {
-				url : "<? echo $AUTH::$videoUrl ?>" ,
-				type : "POST" ,
-				data : form ,
-				dataType : "json" ,
-				cache : false ,
-				processData : false ,
-				contentType : false ,
-				xhr : function ()
-				{
-					myXhr = $.ajaxSettings.xhr () ;
-					if ( myXhr.upload )
-					{
-						myXhr.upload.addEventListener ( 'progress' , function ( e )
-						{
-							var progressBar = $ ( "progress[name=progressBar]" ) ;
-							progressBar.prop ( 'max' , e.total ) ;
-							progressBar.val ( e.loaded ) ;
-						} , false ) ;
-					}
-					return myXhr ;
-				} ,
-				success : function ( data )
-				{
-					console.log ( data ) ;
-					if ( typeof ( data.Result ) == "undefined" )
-					{
-						alert ( "Upload error" ) ;
-					}
-					else
-					{
-						alert ( data.Result ) ;
-						location.href = location.href ;
-					}
-
-				} ,
-				error : function ( XMLHttpRequest , textStatus , errorThrown )
-				{
-					console.log ( XMLHttpRequest.status ) ;
-					console.log ( XMLHttpRequest.readyState ) ;
-					console.log ( textStatus ) ;
-				}
-			} ) ;
-		} )
-
-		$ ( 'button[name="videoUpdate"]' ).click ( function ()
+$ ( document ).ready ( function () {
+	$ ( 'button[name="btnUpload"]' ).click ( function () {
+		var fileInput = $ ( '#video' ).get ( 0 ).files[0] ;
+		if ( ! fileInput )
 		{
-			var title_up = $ ( 'input[name=title_up]' ).val () ,
-					memo_up = $ ( 'input[name=memo_up]' ).val () ,
-					pc_up = $ ( 'input[name=pc_up]' ).val () ,
-					mobile_up = $ ( 'input[name=mobile_up]' ).val () ,
-					videokey_up = $ ( 'input[name=videokey_up]' ).val () ;
-			$.post ( '../service.php' , {
-				'videokey' : videokey_up ,
-				'title' : title_up ,
-				'memo' : memo_up ,
-				'pc' : pc_up ,
-				'mobile' : mobile_up ,
-				'type' : 'video_update'
-			} , function ( data )
-			{
-				//console.log ( data ) ;
-				if ( typeof ( data.Result ) == 'undefined' )
-				{
-					alert ( "update error" ) ;
-				}
-				else
-				{
-					alert ( data.Result ) ;
-					if ( data.Result.includes ( 'success' ) )
-						location.href = location.href ;
-				}
-			} , "json" )
-		} )
-		$ ( 'button[name="videodelete"]' ).click ( function ()
+			alert ( "업로드할 파일을 선택해주세요." ) ;
+			return ;
+		}
+		var token = $ ( '#token' ).val () ,
+				form = new FormData ( document.getElementsByName ( "formUpload" )[0] ) ,
+				encoding = form.get ( 'encodings' ) ;
+		if ( form.get ( "title" ) == null )
 		{
-			var videokey = $ ( 'input[name=videokey_delete]' ).val () ;
-			$.post ( '../service.php' , {
-				'type' : 'video_delete' ,
-				'videokey' : videokey
-			} , function ( data )
-			{
+			alert ( 'no title' ) ;
+			return ;
+		}
+		if ( form.get ( "encodings" ) == null )
+		{
+			alert ( 'no encoding' ) ;
+			return ;
+		}
+		if ( form.get ( "pcQuality" ) == null )
+		{
+			alert ( 'no pcQuality' ) ;
+			return ;
+		}
+		if ( form.get ( "mobileQuality" ) == null )
+		{
+			alert ( 'no mobileQuality' ) ;
+			return ;
+		}
+		if ( ! encoding.includes ( ',' ) )
+			encoding = encoding + ',' ;
+		var encoding_arr = encoding.split ( "," ) ,
+				encoding_arr = encoding_arr.filter ( function ( s )
+				{
+					return s && s.trim () ;
+				} ) ;
+		form.delete ( "encodings" ) ;
+		for ( var i = 0 ; i < encoding_arr.length ; i ++ )
+		{
+			form.append ( 'encoding[' + i + ']' , encoding_arr[i] ) ;
+		}
+
+		$.ajax ( {
+			url : "<? echo $AUTH::$videoUrl ?>" ,
+			type : "POST" ,
+			data : form ,
+			dataType : "json" ,
+			cache : false ,
+			processData : false ,
+			contentType : false ,
+			xhr : function () {
+				myXhr = $.ajaxSettings.xhr () ;
+				if ( myXhr.upload )
+				{
+					myXhr.upload.addEventListener ( 'progress' , function ( e )
+					{
+						var progressBar = $ ( "progress[name=progressBar]" ) ;
+						progressBar.prop ( 'max' , e.total ) ;
+						progressBar.val ( e.loaded ) ;
+					} , false ) ;
+				}
+				return myXhr ;
+			} ,
+			success : function ( data )	{
+				console.log ( data ) ;
 				if ( typeof ( data.Result ) == "undefined" )
 				{
-					alert ( "update error" ) ;
+					alert ( "Upload error" ) ;
 				}
 				else
 				{
 					alert ( data.Result ) ;
-					if ( data.Result.includes ( 'success' ) )
-						location.href = location.href ;
+					location.href = location.href ;
 				}
-			} , "json" )
-		} )
-	} )
+
+			} ,
+			error : function ( XMLHttpRequest , textStatus , errorThrown ) {
+				console.log ( XMLHttpRequest.status ) ;
+				console.log ( XMLHttpRequest.readyState ) ;
+				console.log ( textStatus ) ;
+			}
+		} ) ;
+	} ) ;
+
+	$ ( 'button[name="videoUpdate"]' ).click ( function () {
+		var title_up = $ ( 'input[name=title_up]' ).val () ,
+				memo_up = $ ( 'input[name=memo_up]' ).val () ,
+				pc_up = $ ( 'input[name=pc_up]' ).val () ,
+				mobile_up = $ ( 'input[name=mobile_up]' ).val () ,
+				videokey_up = $ ( 'input[name=videokey_up]' ).val () ;
+		$.post ( '../service.php' , {
+			'videokey' : videokey_up ,
+			'title' : title_up ,
+			'memo' : memo_up ,
+			'pc' : pc_up ,
+			'mobile' : mobile_up ,
+			'type' : 'video_update'
+		} , function ( data ) {
+			//console.log ( data ) ;
+			if ( typeof ( data.Result ) == 'undefined' )
+			{
+				alert ( "update error" ) ;
+			}
+			else
+			{
+				alert ( data.Result ) ;
+				if ( data.Result.includes ( 'success' ) )
+					location.href = location.href ;
+			}
+		} , "json" ) ;
+	} ) ;
+	$ ( 'button[name="videodelete"]' ).click ( function () {
+		var videokey = $ ( 'input[name=videokey_delete]' ).val () ;
+		$.post ( '../service.php' , {
+			'type' : 'video_delete' ,
+			'videokey' : videokey
+		} , function ( data ) {
+			if ( typeof ( data.Result ) == "undefined" )
+			{
+				alert ( "update error" ) ;
+			}
+			else
+			{
+				alert ( data.Result ) ;
+				if ( data.Result.includes ( 'success' ) )
+					location.href = location.href ;
+			}
+		} , "json" ) ;
+	} ) ;
+} ) ;
 </script>
 </html>
