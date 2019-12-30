@@ -1,13 +1,13 @@
-# Download Auth
+# VOD Auth
 
-SDK for iwinv download auth API.  
+SDK for iwinv vod auth API.  
 SDK를 사용하면 편리하고 안전하게 API 연결을 할수있다.
 
 ## Setting
 
 `setting.php` 파일은 기본설정파일이다.
 
-* 다운로드 인증(단독형) 서비스의 도메인 setting.php 의 `apiDomain`로 설정한다.
+*  VOD 인증(단독형) 서비스의 도메인 setting.php 의 `apiDomain`로 설정한다.
 * API 버전을 `setting.php`의`version`로 설정한다.
 
 * 아래 그림과 같이 **콘솔**에서 `사용자명` 메뉴 -> `설정&관리` -> `AccessKey 관리` 에서 accesskey를 생성하며  
@@ -25,12 +25,6 @@ SDK를 사용하면 편리하고 안전하게 API 연결을 할수있다.
 
 <p align="center">
   <img src="./img/img3.jpg" alt="storageKey 설정방법" width="810">
-</p>
-
-* 아래 그림과 같이 **콘솔** -> **파일함**에서 해당폴더의 **folderKey**를 `setting.php`의`folderKey`로 설정한다.
-
-<p align="center">
-  <img src="./img/img4.jpg" alt="folderKey 설정방법" width="810">
 </p>
 
 ## Authentication.class.php
