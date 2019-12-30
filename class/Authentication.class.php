@@ -278,45 +278,6 @@ class Authentication
 
 
     /**
-     * videoUpload
-     * @param string  $video
-     * @param Integer $encodingWidth
-     * @param Integer $encodingHeight
-     * @param string $title
-     * @param string $memo
-     * @param Integer $pcQuality
-     * @param Integer $mobileQuality
-     * @param string $storageKey
-     */
-    function videoUpload ( $video  , $encodingWidth , $encodingHeight , $title , $memo , $pcQuality , $mobileQuality , $storageKey = '' , $token = '' )
-    {
-	$_token = $token ? $token : ($this -> token ? $this -> token : NULL ) ;
-	if ( ! $_token )
-            return 'No token' ;
-
-	$key = $storageKey ? $storageKey : ($this -> storageKey ? $this -> storageKey : NULL ) ;
-	if ( ! $key )
-            return 'No storage key' ;
-
-	if( !file_exists ( $video ) )
-            return "The file $video does not exist";
-
-	$postData = array () ;
-	$postData['video'] =  new CURLFile($video);
-	$postData['endcoding'] = array( $encodingWidth , $encodingHeight ) ;
-	$postData['title'] = $title ;
-	$postData['memo'] = $memo ;
-	$postData['pcQuality'] = $pcQuality ;
-	$postData['mobileQuality'] = $mobileQuality ;
-	$postData['storageKey'] = $key ;
-	$headers[] = 'Authorization:' . $_token ;
-	$headres[] = 'Content-Type:application/x-www-form-urlencoded' ;
-	$re = self::curl ( self::$videoUrl , $headers , 'POST' , $postData ) ;
-	return $this -> returnMsg ( $re , __FUNCTION__  ) ;
-    }
-
-
-    /**
      * @videoList
      * @param Integer $catagoryIdx
      * @param string $token
