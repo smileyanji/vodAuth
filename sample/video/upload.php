@@ -94,12 +94,8 @@ $AUTH -> getToken () ;
 <script src="../jquery.min.js" type="text/javascript"></script>
 
 <script>
-	$ ( document ).ready ( function ()
-	{
-
-
-		$ ( 'button[name="btnUpload"]' ).click ( function ()
-		{
+	$ ( document ).ready ( function () {
+		$ ( 'button[name="btnUpload"]' ).click ( function () {
 			var fileInput = $ ( '#video' ).get ( 0 ).files[0] ;
 			if ( ! fileInput )
 			{
@@ -154,7 +150,7 @@ $AUTH -> getToken () ;
 				{
 					myXhr = $.ajaxSettings.xhr () ;
 					if ( myXhr.upload )
-					{ // check if upload property exists
+					{
 						myXhr.upload.addEventListener ( 'progress' , function ( e )
 						{
 							var progressBar = $ ( "progress[name=progressBar]" ) ;
@@ -180,11 +176,8 @@ $AUTH -> getToken () ;
 				} ,
 				error : function ( XMLHttpRequest , textStatus , errorThrown )
 				{
-					// 状态码
 					console.log ( XMLHttpRequest.status ) ;
-					// 状态
 					console.log ( XMLHttpRequest.readyState ) ;
-					// 错误信息
 					console.log ( textStatus ) ;
 				}
 			} ) ;
@@ -206,7 +199,7 @@ $AUTH -> getToken () ;
 				'type' : 'video_update'
 			} , function ( data )
 			{
-                                //console.log ( data ) ;
+				//console.log ( data ) ;
 				if ( typeof ( data.Result ) == 'undefined' )
 				{
 					alert ( "update error" ) ;
@@ -227,7 +220,6 @@ $AUTH -> getToken () ;
 				'videokey' : videokey
 			} , function ( data )
 			{
-				//console.log ( data ) ;
 				if ( typeof ( data.Result ) == "undefined" )
 				{
 					alert ( "update error" ) ;
