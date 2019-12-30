@@ -51,7 +51,6 @@ $title = 'Storage - Space';
                 'storagekey': storagekey,
                 'type': 'storage_total',
             }, function (result) {
-                //console.log(result);
                 if (typeof (result.Result) != "undefined")
                 {
                     if (result.Result.includes('success'))
@@ -66,7 +65,6 @@ $title = 'Storage - Space';
                 'storagekey': storagekey,
                 'type': 'storage_rest',
             }, function (result) {
-                //console.log(result);
                 if (typeof (result.Result) != "undefined")
                 {
                     if (result.Result.includes('success'))
@@ -82,7 +80,6 @@ $title = 'Storage - Space';
                 'storagekey': storagekey,
                 'type': 'storage_used',
             }, function (result) {
-                //console.log(result);
                 if (typeof (result.Result) != "undefined")
                 {
                     if (result.Result.includes('success'))
