@@ -1,0 +1,38 @@
+ul {
+    list-style: none
+}
+
+li {
+    float: left;
+    display: inline;
+    width: 240px;
+    height: 240px;
+    margin-bottom: 30px;
+    margin-left: 1%;
+    position: relative;
+}
+
+li img {
+    width: 100%;
+    height: 160px;
+}
+
+li .menu_title {
+    width: 100%;
+}
+
+.menu_title a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    width: 100%;
+    word-wrap: break-word
+}
+
+li p {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
