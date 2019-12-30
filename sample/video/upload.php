@@ -45,6 +45,9 @@ $AUTH -> getToken () ;
 				<br/>
 				<span>mobileQuality : </span>
 				<input type="text" name="mobileQuality" class="tag">
+				<br/>
+				<span>watermarkIdx : </span>
+				<input type="text" name="watermarkIdx" class="tag">
 			</form>
 			<button  type="button" name="btnUpload">submit </button>
 			<progress name="progressBar" value="0" max="100"> </progress>
