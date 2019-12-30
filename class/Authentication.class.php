@@ -348,8 +348,8 @@ class Authentication
      * @param string $videoKey
      * @param string $title
      * @param string $memo
-     * @param string $pc	//PC 디폴트 플레이 설정
-     * @param string $mobile	//모바일 디폴트 플레이 설정
+     * @param string $pc PC 디폴트 플레이 설정
+     * @param string $mobile 모바일 디폴트 플레이 설정
      *
      */
     function videoUpdate ( $memo , $mobile='' , $pc='' , $title , $videoKey = '' , $token = '' )
