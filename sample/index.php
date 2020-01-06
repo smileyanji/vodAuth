@@ -10,7 +10,7 @@ $title = 'Menu - Demo' ;
 			<h2>storage</h2>
 			<p><a href="./storage/list.php" > - list</a></p>
 			<p><a href="./storage/detail.php" > - detail</a></p>
-			<p><a href="./storage/total.php" > - total</a></p>
+			<p><a href="./storage/single.php" > - single</a></p>
 		</div>
 
 		<div>
