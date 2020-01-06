@@ -163,7 +163,6 @@ $ ( document ).ready ( function () {
 				return myXhr ;
 			} ,
 			success : function ( data )	{
-				console.log ( data ) ;
 				if ( typeof ( data.Result ) == "undefined" )
 				{
 					alert ( "Upload error" ) ;
