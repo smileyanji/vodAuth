@@ -5,6 +5,9 @@
  */
 include_once '../inc/config.inc' ;
 $title = 'catagory - create/list' ;
+
+$AUTH -> getToken () ;
+$data = $AUTH -> catagorySelect () ;
 ?>
 <?php include_once INC . DIRECTORY_SEPARATOR . 'header.inc' ; ?>
 <div class="div_main">
@@ -28,12 +31,14 @@ $title = 'catagory - create/list' ;
 			</thead>
 			<tbody>
 				<?php
-				$AUTH -> getToken () ;
-				$data = $AUTH -> catagorySelect () ;
-				foreach ( ( array ) $data -> Catagories as $val )
+				if ( $data->Result == 'Catagories select success' )
 				{
-					echo "<tr><td>" . $val -> name . "</td><td>" . $val -> file_count . "</td></tr>" ;
-				}
+					foreach ( ( array ) $data -> Catagories as $val )
+						{
+							echo "<tr><td>" . $val -> name . "</td><td>" . $val -> file_count . "</td></tr>" ;
+						}
+				}else
+					echo "<tr><td colspan='2'> no catagory </td></tr>" ;
 				?>
 			</tbody>
 		</table>
