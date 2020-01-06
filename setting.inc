@@ -28,7 +28,7 @@ $_API = array
 	 * accesskeySecret
 	 * accesskey 비번
 	 */
-	'accesskeySecret' => 'Input your api accesskey secret here!' ,
+	'accesskeySecret' => password_hash ( 'Input your api accesskey secret here!' , PASSWORD_DEFAULT ) ,
 	/**
 	 * storageKey
 	 * 스토리지키
